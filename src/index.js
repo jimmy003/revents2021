@@ -5,14 +5,22 @@ import './index.css';
 import 'semantic-ui-css/semantic.min.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { configureStore } from './app/store/configureStore';
+
+const store = configureStore();
+
+console.log(store.getState());
 
 ReactDOM.render(
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
